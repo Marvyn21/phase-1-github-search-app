@@ -20,18 +20,36 @@ let renderUserDetails = users => {
     });
 } 
 
+// let createUserCard = user => {
+//     const userCard = document.createElement("div");
+//     userCard.className = "user-card";
+//     document.querySelector("#user-list").appendChild(userCard);
+//     userCard.innerHTML = `<img src="${user.avatar_url}">`
+//                         + `<h2>${user.login}</h2>`
+//                         + `<a href="${user.html_url}" target="_blank"> Go to Github Profile</a><br>`
+//                         + `<button class="submit-btn">View ${user.login}'s Repos</button>`
+//     userCard.querySelector(".submit-btn").addEventListener('click', () => {
+//         fetchRepositories(user)
+//     })
+// }
+
 let createUserCard = user => {
-    const userCard = document.createElement("div");
-    userCard.className = "user-card";
-    document.querySelector("#user-list").appendChild(userCard);
-    userCard.innerHTML = `<img src="${user.avatar_url}">`
-                        + `<h2>${user.login}</h2>`
-                        + `<a href="${user.html_url}" target="_blank"> Go to Github Profile</a><br>`
-                        + `<button class="submit-btn">View ${user.login}'s Repos</button>`
-    userCard.querySelector(".submit-btn").addEventListener('click', () => {
-        fetchRepositories(user)
-    })
-}
+    const userCard = `
+      <div class="user-card">
+        <img src="${user.avatar_url}">
+        <h2>${user.login}</h2>
+        <a href="${user.html_url}" target="_blank">Go to Github Profile</a><br>
+        <button class="submit-btn">View ${user.login}'s Repos</button>
+      </div>
+    `;
+    
+    document.querySelector("#user-list").insertAdjacentHTML('beforeend', userCard);
+    
+    document.querySelector(".submit-btn:last-child").addEventListener('click', () => {
+      fetchRepositories(user)
+    });
+  }
+  
 
 
 let fetchRepositories = user => {
@@ -50,5 +68,6 @@ let createRepoCard = repo => {
     repoCard.className = "repo-card"
     document.querySelector("#repos-list").appendChild(repoCard);
     repoCard.innerHTML = `<h2 class="margin-none">${repo.name}</h2>`
-                        + `<p class="fs14 margin-none">${repo.description}</p>`
-}
+                          + `<p class="fs14 margin-none">${repo.description ? repo.description : "No description available."}</p>`;
+  }
+  

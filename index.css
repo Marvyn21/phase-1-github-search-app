@@ -11,7 +11,7 @@
 ul {
   list-style: none;
 }
-.submit-btn {
+.submit-btn, .one-submit {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -23,4 +23,24 @@ ul {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
+}
+
+#search {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.user-card a {
+  margin-right: 10px;
+  color: blue;
+  text-decoration: underline;
+}
+
+.user-card button {
+  margin-left: 10px;
 }

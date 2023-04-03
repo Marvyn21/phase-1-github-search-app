@@ -20,18 +20,6 @@ let renderUserDetails = users => {
     });
 } 
 
-// let createUserCard = user => {
-//     const userCard = document.createElement("div");
-//     userCard.className = "user-card";
-//     document.querySelector("#user-list").appendChild(userCard);
-//     userCard.innerHTML = `<img src="${user.avatar_url}">`
-//                         + `<h2>${user.login}</h2>`
-//                         + `<a href="${user.html_url}" target="_blank"> Go to Github Profile</a><br>`
-//                         + `<button class="submit-btn">View ${user.login}'s Repos</button>`
-//     userCard.querySelector(".submit-btn").addEventListener('click', () => {
-//         fetchRepositories(user)
-//     })
-// }
 
 let createUserCard = user => {
     const userCard = `
